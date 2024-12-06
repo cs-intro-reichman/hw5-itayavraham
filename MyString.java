@@ -7,6 +7,7 @@ public class MyString {
         System.out.println(countChar(hello, 'h'));
         System.out.println(countChar(hello, 'l'));
         System.out.println(countChar(hello, 'z'));
+        System.out.println(subsetOf("dog", "yaiyweadog"));
         System.out.println(remove("committee", "meet"));
         //// Put your other tests here.
     }
