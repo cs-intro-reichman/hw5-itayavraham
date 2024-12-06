@@ -55,7 +55,7 @@ public class Scrabble {
 		word = word.toLowerCase();
 		// Checking if the inputed word is in the dictionary
 		for (int i = 0; i < NUM_OF_WORDS; i++) {
-			if (DICTIONARY[i].toLowerCase().equals(word) && DICTIONARY[i] != null)
+			if (DICTIONARY[i].equals(word) && DICTIONARY[i] != null)
 			return true;
 		}
 		return false;
@@ -122,7 +122,7 @@ public class Scrabble {
 		// the stream of characters coming from the keyboard. Used for reading the user's inputs.   
 		In in = new In();
 		int printScore;
-		while (hand.length() > 2) {
+		while (hand.length() > 0) {
 			System.out.println("Current Hand: " + MyString.spacedString(hand));
 			System.out.println("Enter a word, or '.' to finish playing this hand:");
 			// Reads the next "token" from the keyboard. A token is defined as a string of 
@@ -135,7 +135,7 @@ public class Scrabble {
 				if (MyString.subsetOf(input, hand)) {
 					printScore = wordScore(input);
 					score += printScore;
-					System.out.println(input+" earned "+printScore+". Score: "+score+" points");
+					System.out.println(input+" earned "+printScore+" points. Score: "+score+" points");
 					hand = MyString.remove(hand, input);
 				}
 			}
@@ -171,7 +171,7 @@ public class Scrabble {
 				flagE = true;
 				break;
 				default :
-				System.out.println("ERROR");
+				System.out.println("INVALID INPUT");
 				break;
 			}
 			if (flagE)
