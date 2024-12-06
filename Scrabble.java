@@ -135,7 +135,7 @@ public class Scrabble {
 				if (MyString.subsetOf(input, hand)) {
 					printScore = wordScore(input);
 					score += printScore;
-					System.out.println(input+" earned "+printScore+" points. Score: "+score+" points"+"\n");
+					System.out.println(input+" earned "+printScore+" points. Score: "+score+" points\n");
 					hand = MyString.remove(hand, input);
 				}
 			}
