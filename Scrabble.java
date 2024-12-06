@@ -52,7 +52,7 @@ public class Scrabble {
 		if (NUM_OF_WORDS == 0)
 		init();
 
-		word = word.toLowerCase();
+		word = word.toLowerCase(); // No Instructions given regarding upper case words.
 		// Checking if the inputed word is in the dictionary
 		for (int i = 0; i < NUM_OF_WORDS; i++) {
 			if (DICTIONARY[i].equals(word) && DICTIONARY[i] != null)
@@ -116,7 +116,7 @@ public class Scrabble {
     // 2. The user gets the Scrabble points of the entered word.
     // 3. The user is prompted to enter another word, or '.' to end the hand. 
 	public static void playHand(String hand) {
-		int n = hand.length();
+		int n = hand.length(); // I don't know what's the point of this, but this was given to us.
 		int score = 0;
 		// Declares the variable in to refer to an object of type In, and initializes it to represent
 		// the stream of characters coming from the keyboard. Used for reading the user's inputs.   
@@ -140,7 +140,7 @@ public class Scrabble {
 				}
 			}
 			else
-			System.out.println("No such word in the dictionary. Try again.");
+			System.out.println("Invalid word. Try again.");
 		}
 		if (hand.length() == 0) {
 	        System.out.println("Ran out of letters. Total score: " + score + " points");
