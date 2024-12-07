@@ -131,6 +131,10 @@ public class Scrabble {
 			String input = in.readString();
 			if (input.charAt(0) == '.')
 			break;
+			if (!MyString.subsetOf(input, hand)) {
+				System.out.println("Invalid word. Try again.");
+				continue;
+			}
 			if (isWordInDictionary(input)) {
 				if (MyString.subsetOf(input, hand)) {
 					printScore = wordScore(input);
