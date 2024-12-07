@@ -52,7 +52,7 @@ public class Scrabble {
 		if (NUM_OF_WORDS == 0)
 		init();
 
-		word = word.toLowerCase(); // No Instructions given regarding upper case words.
+		// word = word.toLowerCase(); // No Instructions given regarding upper case words...
 		// Checking if the inputed word is in the dictionary
 		for (int i = 0; i < NUM_OF_WORDS; i++) {
 			if (DICTIONARY[i].equals(word) && DICTIONARY[i] != null)
