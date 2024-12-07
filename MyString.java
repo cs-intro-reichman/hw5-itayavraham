@@ -7,7 +7,8 @@ public class MyString {
         System.out.println(countChar(hello, 'h'));
         System.out.println(countChar(hello, 'l'));
         System.out.println(countChar(hello, 'z'));
-        System.out.println(spacedString(hello));
+        System.out.println(subsetOf("dog", "yaiyweadog"));
+        System.out.println(remove("committee", "meet"));
         //// Put your other tests here.
     }
 
@@ -20,8 +21,12 @@ public class MyString {
      * @return the number of times c appears in str
      */
     public static int countChar(String str, char ch) {
-        //// Replace the following statement with your code
-        return 0;
+        int counter = 0;
+        for (int i = 0; i < str.length(); i++)
+        if (str.charAt(i) == ch)
+        counter++;
+
+        return counter;
     }
 
     /** Returns true if str1 is a subset string str2, false otherwise
@@ -36,8 +41,30 @@ public class MyString {
      * @return true is str1 is a subset of str2, false otherwise
      */
     public static boolean subsetOf(String str1, String str2) {
-         //// Replace the following statement with your code
+        // Edge Case: Empty
+        if (str2.isEmpty())
         return false;
+        if (str1.isEmpty())
+        return true;
+
+        str1 = str1.toLowerCase();
+        str2 = str2.toLowerCase();
+
+        boolean flag = false;
+        for (int i = 0; i < str1.length(); i++) {
+            for (int j = 0; j < str2.length(); j++) {
+                if (str1.charAt(i) == str2.charAt(j)) {
+                    flag = true;
+                    str2 = str2.substring(0, j) + str2.substring(j+1);
+                    break;
+                }
+            }
+            if (flag == false)
+            return false;
+
+            flag = false;
+        }
+        return true;
     }
 
     /** Returns a string which is the same as the given string, with a space
@@ -49,8 +76,14 @@ public class MyString {
      * @return a string consisting of the characters of str, separated by spaces.
      */
     public static String spacedString(String str) {
-        //// Replace the following statement with your code
-        return null;
+        // Edge Case: Empty
+        if (str.isEmpty())
+        return "";
+        String newStr = ""+str.charAt(0);
+        for (int i = 1; i < str.length(); i++) {
+            newStr += " " + str.charAt(i);
+        }
+        return newStr;
     }
   
     /**
@@ -64,8 +97,13 @@ public class MyString {
      * @return a randomly generated string, consisting of 'n' lowercase letters
      */
     public static String randomStringOfLetters(int n) {
-        //// Replace the following statement with your code
-        return null;
+        String str = "";
+        int random;
+        for (int i = 0; i < n; i++) {
+            random = (int)(Math.random()*(122 - 97 + 1) + 97);
+            str += (char)(random);
+        }
+        return str;
     }
 
     /**
@@ -78,8 +116,17 @@ public class MyString {
      * @return a string consisting of str1 minus all the characters of str2
      */
     public static String remove(String str1, String str2) {
-       //// Replace the following statement with your code
-        return null;
+        str1 = str1.toLowerCase();
+        str2 = str2.toLowerCase();
+        for (int i = 0; i < str2.length(); i++) {
+            for (int j = 0; j < str1.length(); j++) {
+                if (str2.charAt(i) == str1.charAt(j)) {
+                    str1 = str1.substring(0, j) + str1.substring(j + 1);
+                    break;
+                }
+            }
+        }
+        return str1;
     }
 
     /**
